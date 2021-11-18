@@ -38,7 +38,7 @@ body {
     max-height: 500px;
     justify-content: center; 
     align-content: center; 
-    border: 1px solid green;
+    background: var(--mesa-blue-gradient);
   }
   /*Cards use flex
   May need multiple flex containers for 2D content/or use grid
@@ -62,25 +62,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-items: start;
-    border: 1px solid #ccc;
-    padding: 1rem 2rem; 
-    padding-right: 0;
     margin: 0;
-    height: 350px;
+    height: 360px;
     max-height: 500px;
-    box-shadow: 3px 3px 3px #ccc; 
+    /* box-shadow: 3px 3px 3px #ccc;  */
     flex-wrap: wrap;
-    .alum-wrapper{
-     /*  background: rgba(204, 204, 204, 0.3); */
-     /*  unique background shape */
-      height: 300px;
-    }
     /*S1*/
     &:nth-child(1) {
       grid-column: 1/2;
-      background: var(--mesa-blue-gradient);
       align-items: start;
       text-align: left;
+      background: var(--mesa-yellow-gradient);
+      border-radius: 5px;
       /*flex items*/ 
       .alum-info {
         display: flex;
@@ -89,17 +82,20 @@ body {
         flex-shrink: 0;
         flex-basis: 100%;
         flex-grow: 0;
-        margin-left: 10%;
-        margin-right: 10%;
-        border: 1px solid orange;
+        /*card doesn't get smaller than 273px*/
+        min-width: 273px;
+        height: 300px;
       }
       .alum-grad{ 
         order: 1;
         width: 0;
         height: 0;
-        margin-left: 25px;
+        margin-left: 27px;
+        position: relative;
+        top: -36%;
+        left: 1%;
       aside {
-        font-size: 3.25rem;
+        font-size: 1.5rem;
         letter-spacing: 3px;
         color: #fff;
         font-weight: 700;
@@ -108,26 +104,44 @@ body {
         width: 235px;
       }
       }
+      .alum-image {
+        border-radius: 5px;
+        background: var(--mesa-yellow-gradient);
+        display: block;
+        width: 100%;
+      }
       .alum-image-crop {
-      order: 4;
-      position: relative;
-      top: 0;
-      left: 35%;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 50%;
+        order: 4;
+        position: relative;
+        top: 20%;
+        left: 35%;
+        border: 5px solid #fff;
       }
       .review {
-        order: 2;
-          &:before{
+        padding: 20px 20px 10px 20px;
+        order: 3;
+        background-color: #fff;
+          &:after{
+          display: block;
           content: "\"";
-          color: #fff;
+          color: #000;
           font-size: 4rem;
           font-weight: 500;
-          margin: 0 auto;
-          height: 0px;
-          margin-bottom: 35px;
+          height: 0;
+          position: relative;
+          bottom: 25%;
+          right: -85%;
         }
       }
       .alum-details {
-        order: 3;
+        order: 2;
+        padding:0 10px;
+        background-color: #fff;
+        color: #023867;
       }
     }
   }
@@ -144,10 +158,11 @@ body {
       margin: 0;
     &:nth-child(2) {
       grid-column: 2/3;
-      background: var(--mesa-yellow-gradient);
+      background: var(--mesa-blue-gradient);
       color: #212121;
       align-items: top;
       text-align: left;
+      border-radius: 5px;
       .alum-info {
         display: flex;
         flex-direction: column;
@@ -157,7 +172,8 @@ body {
         flex-grow: 0;
         margin-top: 0;
         margin-right: 10%;
-        border: 1px solid orange;
+        min-width: 273px;
+        height: 300px;
       }
       .alum-grad{ 
         order: 1;
@@ -184,42 +200,54 @@ body {
       .alum-image {
         /*background styles?*/
         background: var(--mesa-blue-gradient);  
+        border-radius: 5px;
         display: block;
         width: 100%;
         height: 300px;
       }
       .alum-image-crop {
+        width: 110px;
+        height: 110px;
+        overflow: hidden;
+        border: 5px solid #fff;
+        border-radius: 50%;
+      }
+      .alum-image-crop {
       order: 4;
       position: relative;
-      top: 0;
-      left: 35%;
+      top: 5%;
+      left: 55%;
       }
       .review {
         order: 2;
+        background: #fff;
         .highlight {
           position: relative;
             margin-left: 35px;
             margin-right: 35px;
-            padding-right: 20px;
+          
             padding-left: 20px;
         }
       }
       .alum-details {
         order: 3;
-      }
-      .alum-wrapper{
-        background: rgba(204, 204, 204, 0.3);
-      }
+          padding:0 10px;
+          background-color: #fff;
+          color: #023867;
+        }
       .review{  
-        &:after{
+       /*  &:before{
+        display: block;
+        position: relative;
+        top: -5%;
+        left: 47%;
         content: "\"";
-        color: #fff;
+        color: #000;
         font-size: 4rem;
         font-weight: 500;
-        margin: 0 auto;
         height: 0px;
         margin-bottom: 35px;
-      }
+      } */
     }
   }
 }
@@ -235,7 +263,6 @@ body {
   /*General card styling*/
     /*Alum details*/
     .alum-details {
-      background: rgba(204, 204, 204, 0.3);
       p {
         line-height: 1.5;
         margin: 0;
