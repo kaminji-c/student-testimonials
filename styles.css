@@ -25,13 +25,17 @@ body p {
   width: 100%;
   max-width: 1000px;
   height: 100vh;
-  max-height: 500px;
+  max-height: 300px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
   border: 1px solid green;
+  /*new*/
+  background: linear-gradient(120deg, #001b33 0%, #023867 65%, #007ecc 100%);
+  /*new*/
+  margin: 30px;
 }
 
 /*Cards use flex
@@ -61,23 +65,22 @@ body p {
           flex-direction: column;
   justify-items: center;
   border: 1px solid #ccc;
-  padding: 1rem 2rem;
-  height: auto;
-  max-height: 500px;
-  -webkit-box-shadow: 3px 3px 3px #ccc;
-          box-shadow: 3px 3px 3px #ccc;
+  /*new padding: 1rem 2rem; remove padding and added it to flex items so it doesn't spill into grid area */
+  /* height: auto; */
+  /*new*/
+  max-height: 300px;
+  /*specified style added*/
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  border-radius: 5px;
   /*S1*/
-  /*S2*/
-  /*S3*/
 }
 
 .testimonal-card:nth-child(1) {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
-  background: #337ab7;
+  background: white;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
@@ -95,126 +98,71 @@ body p {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  top: -10%;
-  left: 10%;
-  padding-right: 10%;
-  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 10px;
+  place-items: center;
 }
 
-.testimonal-card:nth-child(1) .alum-grad {
-  display: block;
-  position: relative;
-  top: 10%;
-  left: -1%;
-  color: #fff;
+.testimonal-card:nth-child(1) .alum-image {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
-.testimonal-card:nth-child(1) .alum-grad aside {
-  display: block;
-  font-size: 3rem;
-  letter-spacing: 1px;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.testimonal-card:nth-child(1) .alum-grad .alum-image {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.testimonal-card:nth-child(1) .alum-grad img {
-  width: 65%;
-  height: auto;
-  margin: 0 auto;
-}
-
-.testimonal-card:nth-child(2) {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  background: #023867;
-  color: #fff;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.testimonal-card:nth-child(1) .review {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
   text-align: center;
 }
 
-.testimonal-card:nth-child(3) {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  background: #fdb930;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
-  text-align: right;
+.testimonal-card:nth-child(1) .alum-details {
+  /*new*/
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
 }
 
-/*Alum header*/
-aside {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border: 1px solid white;
+.testimonal-card:nth-child(1) .alum-details p {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.testimonal-card:nth-child(1) .alum-details .alumni {
+  color: #023867;
+  font-weight: 500;
 }
 
 /*Alum image container*/
 .alum-image {
   width: 100%;
-  border: 1px solid red;
-  max-height: 145px;
+  /*   max-height: 145px; */
 }
 
 .alum-image img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 100px;
+  max-width: 100px;
   border-radius: 50%;
-  width: 5rem;
+  /* width: 5rem; */
   border: 2px solid #ccc;
 }
 
-/*Alum details*/
-.alum-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border: 1px solid green;
-}
-
-.alum-details p {
-  margin-bottom: 3px;
-}
-
-/*Testimonial*/
 .review {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  color: #337ab7;
+  /*new*/
 }
 
-.review:before {
+.review::before {
+  display: block;
   content: "\"";
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 500;
+  font-size: 3rem;
+  height: 0;
+  padding-bottom: 15px;
+  color: #fdb930;
 }
 /*# sourceMappingURL=styles.css.map */

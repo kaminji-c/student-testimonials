@@ -20,10 +20,12 @@ body {
     width: 100%;
     max-width: 1000px;
     height: 100vh;
-    max-height: 500px;
+    max-height: 300px;
     justify-content: center; 
     align-content: center; 
     border: 1px solid green;
+    /*new*/background: linear-gradient(120deg, #001b33 0%, #023867 65%, #007ecc 100%);
+    /*new*/margin: 30px;
   }
   /*Cards use flex
   May need multiple flex containers for 2D content/or use grid
@@ -47,108 +49,71 @@ body {
     flex-direction: column;
     justify-items: center;
     border: 1px solid #ccc;
-    padding: 1rem 2rem; 
-    height: auto;
-    max-height: 500px;
-    box-shadow: 3px 3px 3px #ccc;
+   /*new padding: 1rem 2rem; remove padding and added it to flex items so it doesn't spill into grid area */
+    /* height: auto; */
+    /*new*/max-height: 300px; /*specified style added*/ 
     flex-wrap: nowrap;
+    border-radius: 5px;
     /*S1*/
     &:nth-child(1) {
       grid-column: 1/2;
-      background: #337ab7;
+      background: rgb(255, 255, 255);
       align-items: start;
       text-align: left;
       .alum-info {
         display: flex;
         flex-direction: column;
         flex: 1;
-        top: -10%;
-        left: 10%;
-        padding-right: 10% ;
-        position: relative;
-      }
-      .alum-grad{ 
-        display: block;
-        position: relative;
-        top: 10%;
-        left: -1%;
-        color: #fff;
-      aside {
-        display: block;
-        font-size: 3rem;
-        letter-spacing: 1px;
-        transform-origin: 0 0;
-        transform: rotate(90deg);
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding: 10px;
+        place-items: center;
       }
       .alum-image {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        order: 1;
       }
-        img {
-          width: 65%; 
-          height: auto; 
-          margin: 0 auto;
+        .review {
+          order: 2;
+          text-align: center;
+        }
+        .alum-details {
+          /*new*/
+          order: 3;
+          p {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+          }
+          .alumni {
+            color: #023867;
+            font-weight: 500;
+          }
         }
       }
     }
-    /*S2*/
-    &:nth-child(2) {
-      grid-column: 2/3;
-      background: #023867;
-      color: #fff;
-      align-items: center;
-      text-align: center;
-    }
-     /*S3*/
-    &:nth-child(3) {
-      grid-column: 3/4;
-      background: #fdb930;
-      align-items: end;
-      text-align: right;
-    }
-
-  }
-  /*Alum header*/
-  aside {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid white;
-  }
-
   /*Alum image container*/
   .alum-image {
     width: 100%;
-    border: 1px solid red;
-    max-height: 145px;
+  /*   max-height: 145px; */
   }
 
   .alum-image img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 100px;
+    max-width: 100px;
     border-radius: 50%;
-    width: 5rem;
+    /* width: 5rem; */
     border: 2px solid #ccc;
     }
-
-    /*Alum details*/
-    .alum-details {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid green;
-      p {
-        margin-bottom:3px;
+    .review {
+      color: #337ab7;
+      /*new*/
+      &::before {
+        display: block;
+        content: "\"";
+        font-size: 3rem;
+        height: 0;
+        padding-bottom: 15px;       
+        color: #fdb930;
       }
     }
-   
-    /*Testimonial*/
-    .review{
-      display: flex;
-      &:before{
-      content: "\"";
-      color: #fff;
-      font-size: 4rem;
-      font-weight: 500;
-    }
-  }
-
+  
