@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
   --mesa-yellow-gradient: linear-gradient(317deg, #daf23d 0%, #f2e63d 35%, #fdce45 100%);
@@ -30,15 +32,18 @@ body h2 {
 
 /*Typography*/
 .alum-details {
+  color: #212121;
   font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
 }
 
-.review {
-  font-size: 1rem;
+.review::before, .review::after {
+  font-family: sans-serif;
+  font-size: calc(7rem + (6 - 1) * ((100vw - 300px)/(1600 - 300)));
+  font-weight: 500;
 }
 
 .review .highlight {
-  font-size: 1.25rem;
+  font-size: calc(1.2rem + (3 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
 
 /*outer grid*/
@@ -185,23 +190,36 @@ body h2 {
 }
 
 .testimonial-card:nth-child(1) .review {
-  padding: 20px 20px 10px 20px;
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
   background-color: #fff;
+  padding: 20px;
+}
+
+.testimonial-card:nth-child(1) .review:before {
+  content: "\“";
+  top: -22%;
+  left: -6%;
 }
 
 .testimonial-card:nth-child(1) .review:after {
-  display: block;
-  content: "\"";
-  color: #000;
-  font-size: 4rem;
-  font-weight: 500;
+  content: "\”";
+  bottom: 27%;
+  right: -82%;
+}
+
+.testimonial-card:nth-child(1) .review:before, .testimonial-card:nth-child(1) .review:after {
+  color: #023867;
   height: 0;
+  opacity: 0.5;
+  z-index: 1;
+  display: block;
   position: relative;
-  bottom: 25%;
-  right: -85%;
+}
+
+.testimonial-card:nth-child(1) .review .highlight {
+  z-index: 2;
 }
 
 .testimonial-card:nth-child(1) .alum-details {
@@ -326,18 +344,35 @@ body h2 {
   background: #fff;
 }
 
+.testimonial-card:nth-of-type(2):nth-child(2) .review:after {
+  content: "\”";
+  bottom: 34%;
+  right: -82%;
+}
+
+.testimonial-card:nth-of-type(2):nth-child(2) .review:before, .testimonial-card:nth-of-type(2):nth-child(2) .review:after {
+  color: #212121;
+  height: 0;
+  opacity: 0.5;
+  z-index: 1;
+  display: block;
+  position: relative;
+}
+
 .testimonial-card:nth-of-type(2):nth-child(2) .review .highlight {
   position: relative;
-  margin-left: 35px;
-  margin-right: 35px;
+  margin: 5px 35px;
   padding-left: 20px;
+  z-index: 2;
 }
 
 .testimonial-card:nth-of-type(2):nth-child(2) .alum-details {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
-  padding: 0 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 56px;
   background-color: #fff;
   color: #023867;
 }
