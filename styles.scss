@@ -14,6 +14,12 @@ body {
     p {
       line-height: 1.5;
     }
+    h2 {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 10px;
+    }
   }
   /*Typography*/
   .alum-details {
@@ -33,12 +39,15 @@ body {
     grid-gap: 20px;
     padding: 20px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     height: 100vh;
     max-height: 500px;
-    justify-content: center; 
+    /* justify-content: center;  */
     align-content: center; 
     background: var(--mesa-blue-gradient);
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
   }
   /*Cards use flex
   May need multiple flex containers for 2D content/or use grid
@@ -57,7 +66,8 @@ body {
   aligns-items: aligns along the block(column) axis)
   place-items: sets both align-items and justify-items props
   */
-  /*Style 1*/
+  /*Style 1
+  Mesa Yellow, Small Alum, Quotation mark*/
   .testimonial-card {
     display: flex;
     flex-direction: row;
@@ -65,8 +75,8 @@ body {
     margin: 0;
     height: 360px;
     max-height: 500px;
-    /* box-shadow: 3px 3px 3px #ccc;  */
     flex-wrap: wrap;
+    border-radius: 5px;
     /*S1*/
     &:nth-child(1) {
       grid-column: 1/2;
@@ -84,7 +94,7 @@ body {
         flex-grow: 0;
         /*card doesn't get smaller than 273px*/
         min-width: 273px;
-        height: 300px;
+        height: 100%;
       }
       .alum-grad{ 
         order: 1;
@@ -92,7 +102,7 @@ body {
         height: 0;
         margin-left: 27px;
         position: relative;
-        top: -36%;
+        top: -30%;
         left: 1%;
       aside {
         font-size: 1.5rem;
@@ -143,16 +153,14 @@ body {
         background-color: #fff;
         color: #023867;
       }
+      .review {
+        border-radius: 5px;
+      }
     }
-  }
-  /*end  S1 Testimonial card styling*/
+  }/*end S1*/
 
-    /*Style 2 card styling
-    testimonial card is different, 
-    has order
-    quote is ::after
-    color contrast
-    */
+    /*Style 2 card styling 
+    Mesa Blue, Big Alum*/
     .testimonial-card:nth-of-type(2) {
       padding: 0;
       margin: 0;
@@ -235,30 +243,61 @@ body {
           background-color: #fff;
           color: #023867;
         }
-      .review{  
-       /*  &:before{
-        display: block;
-        position: relative;
-        top: -5%;
-        left: 47%;
-        content: "\"";
-        color: #000;
-        font-size: 4rem;
-        font-weight: 500;
-        height: 0px;
-        margin-bottom: 35px;
-      } */
-    }
   }
-}
-     /*S3 Styling*/
-   /*  &:nth-child(3) {
-      grid-column: 3/4;
-      background: #fdb930;
-      align-items: end;
-      text-align: right;
-    } */
-
+} /*end S2*/
+     /*S3 Styling
+     Minimalistic, Smaller card,*/
+     .testimonial-card:nth-of-type(3) {
+      max-height: 300px; 
+      background: #fff;
+      padding: 10px;
+      &:nth-child(1) {
+        grid-column: 3/4;
+        background: rgb(255, 255, 255);
+          .alum-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 100%;
+            place-items: center;
+            min-width: 273px;
+          }
+        .alum-image {
+          order: 1;
+          background: var(--mesa-blue-gradient);  
+          border-radius: 5px;
+          display: block;
+          width: 100%;
+          height: 300px;
+        }
+        .alum-image-crop {
+          width: 110px;
+          height: 110px;
+          overflow: hidden;
+          border: 5px solid #fff;
+          border-radius: 50%;
+        }
+          .review {
+            order: 2;
+            text-align: center;
+          }
+          .alum-details {
+            /*new*/
+            order: 3;
+            p {
+              padding: 0;
+              margin: 0;
+              text-align: center;
+            }
+            .alumni {
+              color: #023867;
+              font-weight: 500;
+            }
+          }
+        }
+      }
   
   /*General card styling*/
     /*Alum details*/
@@ -284,6 +323,7 @@ body {
     overflow: hidden;
     border: 5px solid #023867;
     border-radius: 50%;
+    
   }
   /*Alum images*/
   #alum5 {
@@ -292,4 +332,17 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  #alum6 {
+    background:url(images/image6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
  
+  #alum8 {
+    background: url(images/image8.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

@@ -17,6 +17,17 @@ body p {
   line-height: 1.5;
 }
 
+body h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 /*Typography*/
 .alum-details {
   font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
@@ -41,15 +52,18 @@ body p {
   grid-gap: 20px;
   padding: 20px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: 100vh;
   max-height: 500px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  /* justify-content: center;  */
   -ms-flex-line-pack: center;
       align-content: center;
   background: var(--mesa-blue-gradient);
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
 }
 
 /*Cards use flex
@@ -69,7 +83,8 @@ body p {
   aligns-items: aligns along the block(column) axis)
   place-items: sets both align-items and justify-items props
   */
-/*Style 1*/
+/*Style 1
+  Mesa Yellow, Small Alum, Quotation mark*/
 .testimonial-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,9 +97,9 @@ body p {
   margin: 0;
   height: 360px;
   max-height: 500px;
-  /* box-shadow: 3px 3px 3px #ccc;  */
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  border-radius: 5px;
   /*S1*/
 }
 
@@ -121,7 +136,7 @@ body p {
           flex-grow: 0;
   /*card doesn't get smaller than 273px*/
   min-width: 273px;
-  height: 300px;
+  height: 100%;
 }
 
 .testimonial-card:nth-child(1) .alum-grad {
@@ -132,7 +147,7 @@ body p {
   height: 0;
   margin-left: 27px;
   position: relative;
-  top: -36%;
+  top: -30%;
   left: 1%;
 }
 
@@ -198,13 +213,13 @@ body p {
   color: #023867;
 }
 
-/*end  S1 Testimonial card styling*/
-/*Style 2 card styling
-    testimonial card is different, 
-    has order
-    quote is ::after
-    color contrast
-    */
+.testimonial-card:nth-child(1) .review {
+  border-radius: 5px;
+}
+
+/*end S1*/
+/*Style 2 card styling 
+    Mesa Blue, Big Alum*/
 .testimonial-card:nth-of-type(2) {
   padding: 0;
   margin: 0;
@@ -327,28 +342,88 @@ body p {
   color: #023867;
 }
 
-.testimonial-card:nth-of-type(2):nth-child(2) .review {
-  /*  &:before{
-        display: block;
-        position: relative;
-        top: -5%;
-        left: 47%;
-        content: "\"";
-        color: #000;
-        font-size: 4rem;
-        font-weight: 500;
-        height: 0px;
-        margin-bottom: 35px;
-      } */
+/*end S2*/
+/*S3 Styling
+     Minimalistic, Smaller card,*/
+.testimonial-card:nth-of-type(3) {
+  max-height: 300px;
+  background: #fff;
+  padding: 10px;
 }
 
-/*S3 Styling*/
-/*  &:nth-child(3) {
-      grid-column: 3/4;
-      background: #fdb930;
-      align-items: end;
-      text-align: right;
-    } */
+.testimonial-card:nth-of-type(3):nth-child(1) {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  background: white;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  place-items: center;
+  min-width: 273px;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-image {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  background: var(--mesa-blue-gradient);
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-image-crop {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .review {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  text-align: center;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-details {
+  /*new*/
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-details p {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(1) .alum-details .alumni {
+  color: #023867;
+  font-weight: 500;
+}
+
 /*General card styling*/
 /*Alum details*/
 .alum-details p {
@@ -377,6 +452,20 @@ span {
 /*Alum images*/
 #alum5 {
   background: url(images/image5.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#alum6 {
+  background: url(images/image6.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#alum8 {
+  background: url(images/image8.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
