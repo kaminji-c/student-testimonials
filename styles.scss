@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
@@ -7,6 +6,7 @@
 }
 
 /*General body styling*/
+/*san-serif is easier font to read*/
 body {
     margin: 0;
     padding: 0;
@@ -35,6 +35,8 @@ body {
     }
     .highlight {
       font-size: calc(1.2rem + (3 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+      font-style: italic;
+      font-family: sans-serif;
     }
   }
   /*outer grid*/
@@ -148,7 +150,7 @@ body {
         }
         &:after {
            content: "\”";
-           bottom: 27%;
+           bottom: 23%;
            right: -82%;
         }
         &:before, &:after {
@@ -247,10 +249,10 @@ body {
         background: #fff;
         &:after {
            content: "\”";
-           bottom: 34%;
+           bottom: 29%;
            right: -82%;
         }
-        &:before, &:after {
+        &:after {
           color: #212121;
             height: 0;
             opacity: 0.5;
@@ -277,14 +279,13 @@ body {
   }
 } /*end S2*/
      /*S3 Styling
-     Minimalistic, Smaller card,*/
+     Minimalistic, Smaller card, Bigger image, Smaller quote text*/
      .testimonial-card:nth-of-type(3) {
-      max-height: 300px; 
-      background: #fff;
-      padding: 10px;
-      &:nth-child(1) {
+      background:  	rgb(248,248,255);
+      &:nth-child(3) {
         grid-column: 3/4;
-        background: rgb(255, 255, 255);
+        /* background: rgb(255, 255, 255);  */
+        min-height: 350px;
           .alum-info {
             display: flex;
             flex-direction: column;
@@ -292,35 +293,44 @@ body {
             flex-grow: 0;
             flex-shrink: 0;
             flex-basis: 100%;
-            place-items: center;
-            min-width: 273px;
+            place-items: center; 
+            min-width: 273px; 
           }
         .alum-image {
           order: 1;
-          background: var(--mesa-blue-gradient);  
+          background:  	rgb(248,248,255);
           border-radius: 5px;
           display: block;
           width: 100%;
-          height: 300px;
         }
         .alum-image-crop {
-          width: 110px;
-          height: 110px;
+          width: 125px;
+          height: 125px;
           overflow: hidden;
-          border: 5px solid #fff;
           border-radius: 50%;
+          margin: 10px auto;
         }
           .review {
             order: 2;
             text-align: center;
+            .highlight {
+              display: flex;
+              font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
+              margin: 0 10px;
+              color: #000;
+              opacity: .9;
+              font-weight: 500;
+            }
           }
           .alum-details {
-            /*new*/
             order: 3;
+            margin-top: 10px;
             p {
-              padding: 0;
-              margin: 0;
               text-align: center;
+              &:nth-of-type(n+2) {
+                color: #212121;
+                opacity: .8;
+              }
             }
             .alumni {
               color: #023867;
@@ -352,7 +362,7 @@ body {
     width: 100px;
     height: 100px;
     overflow: hidden;
-    border: 5px solid #023867;
+   /*  border: 5px solid #023867; */
     border-radius: 50%;
     
   }

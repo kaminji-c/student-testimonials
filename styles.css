@@ -1,12 +1,12 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
   --mesa-yellow-gradient: linear-gradient(317deg, #daf23d 0%, #f2e63d 35%, #fdce45 100%);
 }
 
 /*General body styling*/
+/*san-serif is easier font to read*/
 body {
   margin: 0;
   padding: 0;
@@ -44,6 +44,8 @@ body h2 {
 
 .review .highlight {
   font-size: calc(1.2rem + (3 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  font-style: italic;
+  font-family: sans-serif;
 }
 
 /*outer grid*/
@@ -205,7 +207,7 @@ body h2 {
 
 .testimonial-card:nth-child(1) .review:after {
   content: "\”";
-  bottom: 27%;
+  bottom: 23%;
   right: -82%;
 }
 
@@ -346,11 +348,11 @@ body h2 {
 
 .testimonial-card:nth-of-type(2):nth-child(2) .review:after {
   content: "\”";
-  bottom: 34%;
+  bottom: 29%;
   right: -82%;
 }
 
-.testimonial-card:nth-of-type(2):nth-child(2) .review:before, .testimonial-card:nth-of-type(2):nth-child(2) .review:after {
+.testimonial-card:nth-of-type(2):nth-child(2) .review:after {
   color: #212121;
   height: 0;
   opacity: 0.5;
@@ -379,21 +381,20 @@ body h2 {
 
 /*end S2*/
 /*S3 Styling
-     Minimalistic, Smaller card,*/
+     Minimalistic, Smaller card, Bigger image, Smaller quote text*/
 .testimonial-card:nth-of-type(3) {
-  max-height: 300px;
-  background: #fff;
-  padding: 10px;
+  background: ghostwhite;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) {
+.testimonial-card:nth-of-type(3):nth-child(3) {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3/4;
-  background: white;
+  /* background: rgb(255, 255, 255);  */
+  min-height: 350px;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-info {
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,46 +416,59 @@ body h2 {
   min-width: 273px;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-image {
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-image {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  background: var(--mesa-blue-gradient);
+  background: ghostwhite;
   border-radius: 5px;
   display: block;
   width: 100%;
-  height: 300px;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-image-crop {
-  width: 110px;
-  height: 110px;
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-image-crop {
+  width: 125px;
+  height: 125px;
   overflow: hidden;
-  border: 5px solid #fff;
   border-radius: 50%;
+  margin: 10px auto;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .review {
+.testimonial-card:nth-of-type(3):nth-child(3) .review {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   text-align: center;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-details {
-  /*new*/
+.testimonial-card:nth-of-type(3):nth-child(3) .review .highlight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
+  margin: 0 10px;
+  color: #000;
+  opacity: .9;
+  font-weight: 500;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-details {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
+  margin-top: 10px;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-details p {
-  padding: 0;
-  margin: 0;
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-details p {
   text-align: center;
 }
 
-.testimonial-card:nth-of-type(3):nth-child(1) .alum-details .alumni {
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-details p:nth-of-type(n+2) {
+  color: #212121;
+  opacity: .8;
+}
+
+.testimonial-card:nth-of-type(3):nth-child(3) .alum-details .alumni {
   color: #023867;
   font-weight: 500;
 }
@@ -480,7 +494,7 @@ span {
   width: 100px;
   height: 100px;
   overflow: hidden;
-  border: 5px solid #023867;
+  /*  border: 5px solid #023867; */
   border-radius: 50%;
 }
 
