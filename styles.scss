@@ -351,9 +351,127 @@ body {
       }
 
 /*********************
+COMBINED S1-S3 CARD STYLING
+*********************/
+.testimonial-card:nth-of-type(4) {
+  padding: 0;
+  margin: 0;
+&:nth-child(4) {
+  grid-column: 2/3;
+  background: var(--mesa-blue-gradient);
+  color: #212121;
+  align-items: top;
+  text-align: left;
+  border-radius: 5px;
+  .alum-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    flex-grow: 0;
+    margin-top: 0;
+    margin-right: 10%;
+    min-width: 273px;
+    height: 300px;
+  }
+  .alum-grad{ 
+    order: 1;
+    width: 0;
+    height: 0;
+    margin-left: 59px;
+    position: relative;
+    top: -38%;
+    left: 0;
+  aside {
+    display: inline-flex;
+   /*  font-size: 3.25rem; */
+    font-size: calc(3rem + (7 - 3) * ((100vw - 300px)/(1600 - 300)));
+    letter-spacing: 3px;
+    color: #fff;
+    font-weight: 700;
+    transform-origin: 0 0;
+    transform: rotate(90deg);
+    width: 235px;
+    span {
+      color: #001b33;
+    }
+  }
+  }
+  .alum-image {
+    /*background styles?*/
+    background: var(--mesa-blue-gradient);  
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    height: 300px;
+  }
+  .alum-image-crop {
+    width: 115px;
+    height: 115px;
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-radius: 50%;
+  }
+  .alum-image-crop {
+  order: 4;
+  margin: 0 auto;
+  position: relative;
+  top: 25%;
+  }
+  .review {
+    order: 2;
+    background: #fff;
+    &:after {
+       content: "\”";
+       bottom: 29%;
+       right: -82%;
+    }
+    &:after {
+      color: #212121;
+        height: 0;
+        opacity: 0.5;
+        z-index: 1;
+        display: block;
+        position: relative;
+    }
+    span {
+      display: -webkit-box;
+      -webkit-line-clamp: 10;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+    .highlight {
+      margin: 30px 45px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
+    }
+  }
+  .alum-details {
+    order: 3;
+    background-color: #fff;
+    color: #023867;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    p {
+      &:nth-of-type(n+2) {
+        color: #212121;
+        opacity: .8;
+      }
+    }
+    }
+}
+} /*end S2*/
+
+/*********************
 MID SIZED CARD STYLING
 *********************/
-.testimonial-card:nth-of-type(4){
+.testimonial-card:nth-of-type(5){
   background: #fff;
   border: 1px solid #fff;
   &:nth-child(4){
