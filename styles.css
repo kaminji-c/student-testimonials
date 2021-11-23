@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&display=swap");
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
-  --mesa-yellow-gradient: linear-gradient(317deg, #daf23d 0%, #f2e63d 35%, #fdce45 100%);
+  --mesa-secondary-blue-gradient: linear-gradient(317deg, #0e223f 0%,  #1f3c7b 35%,  #2253a3 100%);
+  --mesa-yellow-gradient: linear-gradient(317deg, #fcb424 0%,  #ffcd42 35%,  #ffe65c 100%);
+  --mesa-primary-mid-blue: #1f3c7b;
 }
 
 /*General body styling*/
@@ -13,6 +15,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Antonio", san-serif;
+  background: var(--mesa-blue-gradient);
 }
 
 body p {
@@ -20,7 +23,7 @@ body p {
   margin: 0;
 }
 
-body h2 {
+body .header h2, body .header p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +31,12 @@ body h2 {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 auto;
+  color: #fff;
+}
+
+body .header h2 {
   padding: 10px;
+  font-size: 2.5rem;
 }
 
 /*Typography*/
@@ -40,7 +48,7 @@ body h2 {
 /*Line clamp, limit line to 7 for longer quotes?*/
 span {
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -57,29 +65,30 @@ span {
   font-family: sans-serif;
 }
 
-/*outer grid*/
+/*********************
+  GRID LAYOUT STYLING 
+  *********************/
 .testimonial-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: 390px 300px 300px;
-      grid-template-rows: 390px 300px 300px;
-  /*grid-template-rows: repeat(3, 1fr)*/
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
   /*     grid-gap: 60px 20px;
  */
-  grid-gap: 80px 20px;
+  grid-gap: 20px 20px;
   padding: 20px;
   width: 100%;
   max-width: 1200px;
-  /*     height: 100vh; */
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  /* justify-content: center;  */
   -ms-flex-line-pack: center;
       align-content: center;
-  background: var(--mesa-blue-gradient);
+  /*   background: #f8f8ff; */
+  /*     background: var(--mesa-blue-gradient);
+ */
   margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -87,25 +96,9 @@ span {
   justify-items: center;
 }
 
-/*Cards use flex
-  May need multiple flex containers for 2D content/or use grid
-  2D Content vs Grid/subgrid (subgrid only supported by firefox :(no to subgrids lol)  
-  Explicit and Implicit Grids
-  
-  Grid properties:: 
-  ::grid-container 
-  justify-content: when size of grid is less than size of grid container, set alignment of grid within the grid container
-  align-content: block(col) axis 
-  
-  
-  ::grid-items
-  justify-items: aligns items along inline(row) axis
-      vs. 
-  aligns-items: aligns along the block(column) axis)
-  place-items: sets both align-items and justify-items props
-  */
-/*Style 1
-  Mesa Yellow, Small Alum, Quotation mark*/
+/*********************
+  FLEX ITEM GENERAL STYLING
+  **********************/
 .testimonial-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -116,28 +109,16 @@ span {
           flex-direction: row;
   justify-items: start;
   margin: 0;
-  height: 360px;
+  height: 405px;
   max-height: 500px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border-radius: 5px;
-  /*S1*/
+  padding: 0;
+  margin: 0;
 }
 
-.testimonial-card:nth-child(1) {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  text-align: left;
-  background: var(--mesa-yellow-gradient);
-  border-radius: 5px;
-  /*flex items*/
-}
-
-.testimonial-card:nth-child(1) .alum-info {
+.testimonial-card .alum-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,395 +136,25 @@ span {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
-  /*card doesn't get smaller than 273px*/
+  margin-top: 0;
+  margin-right: 10%;
   min-width: 273px;
-  height: 100%;
+  height: inherit;
 }
 
-.testimonial-card:nth-child(1) .alum-grad {
+.testimonial-card .alum-grad {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
   width: 0;
   height: 0;
-  margin-left: 27px;
+  margin-left: 59px;
   position: relative;
   top: -30%;
-  left: 1%;
-}
-
-.testimonial-card:nth-child(1) .alum-grad aside {
-  font-size: 1.5rem;
-  letter-spacing: 3px;
-  color: #fff;
-  font-weight: 700;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  width: 235px;
-}
-
-.testimonial-card:nth-child(1) .alum-image {
-  border-radius: 5px;
-  background: var(--mesa-yellow-gradient);
-  display: block;
-  width: 100%;
-}
-
-.testimonial-card:nth-child(1) .alum-image-crop {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
-  position: relative;
-  top: 20%;
-  left: 35%;
-  border: 5px solid #fff;
-}
-
-.testimonial-card:nth-child(1) .review {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
-  background-color: #fff;
-  padding: 20px;
-}
-
-.testimonial-card:nth-child(1) .review:before {
-  content: "\“";
-  top: -22%;
-  left: -6%;
-}
-
-.testimonial-card:nth-child(1) .review:after {
-  content: "\”";
-  bottom: 23%;
-  right: -82%;
-}
-
-.testimonial-card:nth-child(1) .review:before, .testimonial-card:nth-child(1) .review:after {
-  color: #023867;
-  height: 0;
-  opacity: 0.5;
-  z-index: 1;
-  display: block;
-  position: relative;
-}
-
-.testimonial-card:nth-child(1) .review .highlight {
-  z-index: 2;
-}
-
-.testimonial-card:nth-child(1) .alum-details {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-  padding: 0 10px;
-  background-color: #fff;
-  color: #023867;
-}
-
-.testimonial-card:nth-child(1) .review {
-  border-radius: 5px;
-}
-
-/*end S1*/
-/*Style 2 card styling 
-    Mesa Blue, Big Alum*/
-.testimonial-card:nth-of-type(2) {
-  padding: 0;
-  margin: 0;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  background: var(--mesa-blue-gradient);
-  color: #212121;
-  -webkit-box-align: top;
-      -ms-flex-align: top;
-          align-items: top;
-  text-align: left;
-  border-radius: 5px;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  margin-top: 0;
-  margin-right: 10%;
-  min-width: 273px;
-  height: 300px;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-grad {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  width: 0;
-  height: 0;
-  margin-left: 59px;
-  position: relative;
-  top: -38%;
   left: 0;
 }
 
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-grad aside {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 3.25rem;
-  letter-spacing: 3px;
-  color: #fff;
-  font-weight: 700;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  width: 235px;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-grad aside span {
-  color: #001b33;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-image {
-  /*background styles?*/
-  background: var(--mesa-blue-gradient);
-  border-radius: 5px;
-  display: block;
-  width: 100%;
-  height: 300px;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-image-crop {
-  width: 110px;
-  height: 110px;
-  overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 50%;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-image-crop {
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
-  position: relative;
-  top: 5%;
-  left: 55%;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .review {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-  background: #fff;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .review:after {
-  content: "\”";
-  bottom: 29%;
-  right: -82%;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .review:after {
-  color: #212121;
-  height: 0;
-  opacity: 0.5;
-  z-index: 1;
-  display: block;
-  position: relative;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .review .highlight {
-  position: relative;
-  margin: 5px 35px;
-  padding-left: 20px;
-  z-index: 2;
-}
-
-.testimonial-card:nth-of-type(2):nth-child(2) .alum-details {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 56px;
-  background-color: #fff;
-  color: #023867;
-}
-
-/*end S2*/
-/*S3 Styling
-     Minimalistic, Smaller card, Bigger image, Smaller quote text*/
-.testimonial-card:nth-of-type(3) {
-  background: ghostwhite;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  min-height: 350px;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  place-items: center;
-  min-width: 273px;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-image {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  background: ghostwhite;
-  border-radius: 5px;
-  display: block;
-  width: 100%;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-image-crop {
-  width: 125px;
-  height: 125px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin: 10px auto;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .review {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-  text-align: center;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .review .highlight {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
-  margin: 0 10px;
-  color: #000;
-  opacity: .9;
-  font-weight: 500;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-details {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
-  margin-top: 10px;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-details p {
-  text-align: center;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-details p:nth-of-type(n+2) {
-  color: #212121;
-  opacity: .8;
-}
-
-.testimonial-card:nth-of-type(3):nth-child(3) .alum-details .alumni {
-  color: #023867;
-  font-weight: 500;
-}
-
-/*********************
-COMBINED S1-S3 CARD STYLING
-*********************/
-.testimonial-card:nth-of-type(4) {
-  padding: 0;
-  margin: 0;
-}
-
-.testimonial-card:nth-of-type(4):nth-child(4) {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  background: var(--mesa-blue-gradient);
-  color: #212121;
-  -webkit-box-align: top;
-      -ms-flex-align: top;
-          align-items: top;
-  text-align: left;
-  border-radius: 5px;
-}
-
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  margin-top: 0;
-  margin-right: 10%;
-  min-width: 273px;
-  height: 300px;
-}
-
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-grad {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  width: 0;
-  height: 0;
-  margin-left: 59px;
-  position: relative;
-  top: -38%;
-  left: 0;
-}
-
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-grad aside {
+.testimonial-card .alum-grad aside {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -559,20 +170,19 @@ COMBINED S1-S3 CARD STYLING
   width: 235px;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-grad aside span {
+.testimonial-card .alum-grad aside span {
   color: #001b33;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-image {
-  /*background styles?*/
-  background: var(--mesa-blue-gradient);
+.testimonial-card .alum-image {
+  /*     background: var(--mesa-blue-gradient);   */
   border-radius: 5px;
   display: block;
   width: 100%;
-  height: 300px;
+  /*       height: 300px; */
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-image-crop {
+.testimonial-card .alum-image-crop {
   width: 115px;
   height: 115px;
   overflow: hidden;
@@ -580,7 +190,7 @@ COMBINED S1-S3 CARD STYLING
   border-radius: 50%;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-image-crop {
+.testimonial-card .alum-image-crop {
   -webkit-box-ordinal-group: 5;
       -ms-flex-order: 4;
           order: 4;
@@ -589,20 +199,20 @@ COMBINED S1-S3 CARD STYLING
   top: 25%;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .review {
+.testimonial-card .review {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   background: #fff;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .review:after {
+.testimonial-card .review:after {
   content: "\”";
   bottom: 29%;
   right: -82%;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .review:after {
+.testimonial-card .review:after {
   color: #212121;
   height: 0;
   opacity: 0.5;
@@ -611,40 +221,50 @@ COMBINED S1-S3 CARD STYLING
   position: relative;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .review span {
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.testimonial-card:nth-of-type(4):nth-child(4) .review .highlight {
+.testimonial-card .review .highlight {
   margin: 30px 45px;
   margin-bottom: 15px;
   text-align: center;
   font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-details {
+.testimonial-card .alum-details {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
   background-color: #fff;
-  color: #023867;
+  color: var(--mesa-primary-mid-blue);
   text-align: center;
   margin: 0 auto;
   padding-bottom: 15px;
   width: 100%;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
-.testimonial-card:nth-of-type(4):nth-child(4) .alum-details p:nth-of-type(n+2) {
+.testimonial-card .alum-details p:nth-of-type(n+2) {
   color: #212121;
   opacity: .8;
 }
 
-/*end S2*/
+/*********************
+COMBINED S1-S3 CARD STYLING
+*********************/
+.testimonial-card:nth-of-type(odd):nth-child(odd) {
+  /*   grid-column: 1/2; */
+  background: var(--mesa-secondary-blue-gradient);
+  /* background: #1f3c7b; */
+  border: 1px solid #ccc;
+}
+
+.testimonial-card:nth-of-type(even):nth-child(even) {
+  /*   grid-column: 2/3; */
+  background: var(--mesa-yellow-gradient);
+  border: 1px solid #ccc;
+}
+
+.testimonial-card:nth-of-type(even):nth-child(even) aside span {
+  color: var(--mesa-primary-mid-blue);
+}
+
 /*********************
 MID SIZED CARD STYLING
 *********************/
@@ -766,6 +386,13 @@ MID SIZED CARD STYLING
 }
 
 /*Alum images*/
+#alum2 {
+  background: url(images/image2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #alum5 {
   background: url(images/image5.png);
   background-position: center;
@@ -780,10 +407,29 @@ MID SIZED CARD STYLING
   background-size: cover;
 }
 
+#alum7 {
+  background: url(images/image7.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #alum8 {
   background: url(images/image8.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#alum9 {
+  background: url(images/image9.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*********************
+  MEDIA QUERIES 
+  *********************/
+/*Line clamps*/
 /*# sourceMappingURL=styles.css.map */

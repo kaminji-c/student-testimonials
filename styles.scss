@@ -2,7 +2,9 @@
 
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
-  --mesa-yellow-gradient: linear-gradient(317deg, #daf23d 0%, #f2e63d 35%, #fdce45 100%);
+  --mesa-secondary-blue-gradient: linear-gradient(317deg, #0e223f 0%,  #1f3c7b 35%,  #2253a3 100%);
+  --mesa-yellow-gradient: linear-gradient(317deg, #fcb424 0%,  #ffcd42 35%,  #ffe65c 100%);
+  --mesa-primary-mid-blue: #1f3c7b;
 }
 
 /*General body styling*/
@@ -12,16 +14,24 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Antonio", san-serif; 
+    background: var(--mesa-blue-gradient);
     p {
       line-height: 1.5;
       margin: 0;
     }
-    h2 {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      padding: 10px;
+    .header {
+      h2, p {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        color: #fff;
+      }
+      h2 {
+        padding: 10px;
+        font-size: 2.5rem;
+      }
     }
+ 
   }
   /*Typography*/
   .alum-details {
@@ -31,7 +41,7 @@ body {
     /*Line clamp, limit line to 7 for longer quotes?*/
     span {
       display: -webkit-box;
-      -webkit-line-clamp: 7;
+      -webkit-line-clamp: 10;
       -webkit-box-orient: vertical;  
       overflow: hidden;
     }
@@ -47,426 +57,159 @@ body {
       font-family: sans-serif;
     }
   }
-  /*outer grid*/
+  /*********************
+  GRID LAYOUT STYLING 
+  *********************/
   .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 390px 300px 300px;
-    /*grid-template-rows: repeat(3, 1fr)*/
+    grid-template-rows: repeat(3, 1fr);
 /*     grid-gap: 60px 20px;
  */
-    grid-gap: 80px 20px;
+    grid-gap: 20px 20px;
     padding: 20px;
     width: 100%;
     max-width: 1200px;
-/*     height: 100vh; */
     height: min-content;
-    /* justify-content: center;  */
     align-content: center; 
-    background: var(--mesa-blue-gradient);
-    margin: 0 auto;
+  /*   background: #f8f8ff; */
+/*     background: var(--mesa-blue-gradient);
+ */    margin: 0 auto;
     align-items: center;
     justify-items: center;
   }
-  /*Cards use flex
-  May need multiple flex containers for 2D content/or use grid
-  2D Content vs Grid/subgrid (subgrid only supported by firefox :(no to subgrids lol)  
-  Explicit and Implicit Grids
-  
-  Grid properties:: 
-  ::grid-container 
-  justify-content: when size of grid is less than size of grid container, set alignment of grid within the grid container
-  align-content: block(col) axis 
-  
-  
-  ::grid-items
-  justify-items: aligns items along inline(row) axis
-      vs. 
-  aligns-items: aligns along the block(column) axis)
-  place-items: sets both align-items and justify-items props
-  */
-  /*Style 1
-  Mesa Yellow, Small Alum, Quotation mark*/
+  /*********************
+  FLEX ITEM GENERAL STYLING
+  **********************/
   .testimonial-card {
     display: flex;
     flex-direction: row;
     justify-items: start;
     margin: 0;
-    height: 360px;
+    height: 405px;
     max-height: 500px;
     flex-wrap: wrap;
     border-radius: 5px;
-    /*S1*/
-    &:nth-child(1) {
-      grid-column: 1/2;
-      align-items: start;
-      text-align: left;
-      background: var(--mesa-yellow-gradient);
-      border-radius: 5px;
-      /*flex items*/ 
-      .alum-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        flex-shrink: 0;
-        flex-basis: 100%;
-        flex-grow: 0;
-        /*card doesn't get smaller than 273px*/
-        min-width: 273px;
-        height: 100%;
-      }
-      .alum-grad{ 
-        order: 1;
-        width: 0;
-        height: 0;
-        margin-left: 27px;
-        position: relative;
-        top: -30%;
-        left: 1%;
-      aside {
-        font-size: 1.5rem;
-        letter-spacing: 3px;
-        color: #fff;
-        font-weight: 700;
-        transform-origin: 0 0;
-        transform: rotate(90deg);
-        width: 235px;
-      }
-      }
-      .alum-image {
-        border-radius: 5px;
-        background: var(--mesa-yellow-gradient);
-        display: block;
-        width: 100%;
-      }
-      .alum-image-crop {
-        width: 100px;
-        height: 100px;
-        overflow: hidden;
-        border-radius: 50%;
-        order: 4;
-        position: relative;
-        top: 20%;
-        left: 35%;
-        border: 5px solid #fff;
-      }
-      .review {
-        order: 3;
-        background-color: #fff;
-        padding: 20px;
-          &:before{
-          content: "\“";
-          top: -22%;
-          left: -6%;          
-        }
-        &:after {
-           content: "\”";
-           bottom: 23%;
-           right: -82%;
-        }
-        &:before, &:after {
-          color: #023867;
-            height: 0;
-            opacity: 0.5;
-            z-index: 1;
-            display: block;
-            position: relative;
-        }
-        .highlight {
-          z-index: 2;
-        }
-      }
-      .alum-details {
-        order: 2;
-        padding:0 10px;
-        background-color: #fff;
-        color: #023867;
-      }
-      .review {
-        border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    .alum-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      flex-grow: 0;
+      margin-top: 0;
+      margin-right: 10%;
+      min-width: 273px;
+      height: inherit;
+    }
+    .alum-grad{ 
+      order: 1;
+      width: 0; 
+      height: 0; 
+      margin-left: 59px;
+      position: relative;
+      top: -30%;
+      left: 0;
+    aside {
+      display: inline-flex;
+     /*  font-size: 3.25rem; */
+      font-size: calc(3rem + (7 - 3) * ((100vw - 300px)/(1600 - 300)));
+      letter-spacing: 3px;
+      color: #fff;
+      font-weight: 700;
+      transform-origin: 0 0;
+      transform: rotate(90deg);
+      width: 235px;
+      span {
+        color: #001b33;
       }
     }
-  }/*end S1*/
-
-    /*Style 2 card styling 
-    Mesa Blue, Big Alum*/
-    .testimonial-card:nth-of-type(2) {
-      padding: 0;
-      margin: 0;
-    &:nth-child(2) {
-      grid-column: 2/3;
-      background: var(--mesa-blue-gradient);
-      color: #212121;
-      align-items: top;
-      text-align: left;
+    }
+    .alum-image {
+  /*     background: var(--mesa-blue-gradient);   */
       border-radius: 5px;
-      .alum-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        flex-shrink: 0;
-        flex-basis: 100%;
-        flex-grow: 0;
-        margin-top: 0;
-        margin-right: 10%;
-        min-width: 273px;
-        height: 300px;
+      display: block;
+      width: 100%;
+/*       height: 300px; */
+    }
+    .alum-image-crop {
+      width: 115px;
+      height: 115px;
+      overflow: hidden;
+      border: 5px solid #fff;
+      border-radius: 50%;
+    }
+    .alum-image-crop {
+    order: 4;
+    margin: 0 auto;
+    position: relative;
+    top: 25%;
+    }
+    .review {
+      order: 2;
+      background: #fff;
+      &:after {
+         content: "\”";
+         bottom: 29%;
+         right: -82%;
       }
-      .alum-grad{ 
-        order: 1;
-        width: 0;
-        height: 0;
-        margin-left: 59px;
-        position: relative;
-        top: -38%;
-        left: 0;
-      aside {
-        display: inline-flex;
-        font-size: 3.25rem;
-        letter-spacing: 3px;
-        color: #fff;
-        font-weight: 700;
-        transform-origin: 0 0;
-        transform: rotate(90deg);
-        width: 235px;
-        span {
-          color: #001b33;
-        }
-      }
-      }
-      .alum-image {
-        /*background styles?*/
-        background: var(--mesa-blue-gradient);  
-        border-radius: 5px;
-        display: block;
-        width: 100%;
-        height: 300px;
-      }
-      .alum-image-crop {
-        width: 110px;
-        height: 110px;
-        overflow: hidden;
-        border: 5px solid #fff;
-        border-radius: 50%;
-      }
-      .alum-image-crop {
-      order: 4;
-      position: relative;
-      top: 5%;
-      left: 55%;
-      }
-      .review {
-        order: 2;
-        background: #fff;
-        &:after {
-           content: "\”";
-           bottom: 29%;
-           right: -82%;
-        }
-        &:after {
-          color: #212121;
-            height: 0;
-            opacity: 0.5;
-            z-index: 1;
-            display: block;
-            position: relative;
-        }
-        .highlight {
-          position: relative;
-            margin: 5px 35px;
-            padding-left: 20px;
-            z-index: 2;
-        }
-        
-      }
-      .alum-details {
-        order: 3;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 56px;
-        background-color: #fff;
-        color: #023867;
-        }
-  }
-} /*end S2*/
-     /*S3 Styling
-     Minimalistic, Smaller card, Bigger image, Smaller quote text*/
-     .testimonial-card:nth-of-type(3) {
-      background:  	rgb(248,248,255);
-      &:nth-child(3) {
-        grid-column: 3/4;
-        min-height: 350px;
-          .alum-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            flex-grow: 0;
-            flex-shrink: 0;
-            flex-basis: 100%;
-            place-items: center; 
-            min-width: 273px; 
-          }
-        .alum-image {
-          order: 1;
-          background:  	rgb(248,248,255);
-          border-radius: 5px;
+      &:after {
+        color: #212121;
+          height: 0;
+          opacity: 0.5;
+          z-index: 1;
           display: block;
-          width: 100%;
-        }
-        .alum-image-crop {
-          width: 125px;
-          height: 125px;
-          overflow: hidden;
-          border-radius: 50%;
-          margin: 10px auto;
-        }
-          .review {
-            order: 2;
-            text-align: center;
-            .highlight {
-              display: flex;
-              font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
-              margin: 0 10px;
-              color: #000;
-              opacity: .9;
-              font-weight: 500;
-            }
-          }
-          .alum-details {
-            order: 3;
-            margin-top: 10px;
-            p {
-              text-align: center;
-              &:nth-of-type(n+2) {
-                color: #212121;
-                opacity: .8;
-              }
-            }
-            .alumni {
-              color: #023867;
-              font-weight: 500;
-            }
-          }
+          position: relative;
+      }
+      .highlight {
+        margin: 30px 45px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
+      }
+    }
+    .alum-details {
+      order: 3;
+      background-color: #fff;
+      color: var(--mesa-primary-mid-blue);
+      text-align: center;
+      margin: 0 auto;
+      padding-bottom: 15px;
+      width: 100%;
+      p {
+        &:nth-of-type(n+2) {
+          color: #212121;
+          opacity: .8;
         }
       }
+      }
+  }
 
 /*********************
 COMBINED S1-S3 CARD STYLING
 *********************/
-.testimonial-card:nth-of-type(4) {
-  padding: 0;
-  margin: 0;
-&:nth-child(4) {
-  grid-column: 2/3;
-  background: var(--mesa-blue-gradient);
-  color: #212121;
-  align-items: top;
-  text-align: left;
-  border-radius: 5px;
-  .alum-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    flex-shrink: 0;
-    flex-basis: 100%;
-    flex-grow: 0;
-    margin-top: 0;
-    margin-right: 10%;
-    min-width: 273px;
-    height: 300px;
-  }
-  .alum-grad{ 
-    order: 1;
-    width: 0;
-    height: 0;
-    margin-left: 59px;
-    position: relative;
-    top: -38%;
-    left: 0;
-  aside {
-    display: inline-flex;
-   /*  font-size: 3.25rem; */
-    font-size: calc(3rem + (7 - 3) * ((100vw - 300px)/(1600 - 300)));
-    letter-spacing: 3px;
-    color: #fff;
-    font-weight: 700;
-    transform-origin: 0 0;
-    transform: rotate(90deg);
-    width: 235px;
-    span {
-      color: #001b33;
-    }
-  }
-  }
-  .alum-image {
-    /*background styles?*/
-    background: var(--mesa-blue-gradient);  
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-    height: 300px;
-  }
-  .alum-image-crop {
-    width: 115px;
-    height: 115px;
-    overflow: hidden;
-    border: 5px solid #fff;
-    border-radius: 50%;
-  }
-  .alum-image-crop {
-  order: 4;
-  margin: 0 auto;
-  position: relative;
-  top: 25%;
-  }
-  .review {
-    order: 2;
-    background: #fff;
-    &:after {
-       content: "\”";
-       bottom: 29%;
-       right: -82%;
-    }
-    &:after {
-      color: #212121;
-        height: 0;
-        opacity: 0.5;
-        z-index: 1;
-        display: block;
-        position: relative;
-    }
-    span {
-      display: -webkit-box;
-      -webkit-line-clamp: 10;
-      -webkit-box-orient: vertical;  
-      overflow: hidden;
-    }
-    .highlight {
-      margin: 30px 45px;
-      margin-bottom: 15px;
-      text-align: center;
-      font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
-    }
-  }
-  .alum-details {
-    order: 3;
-    background-color: #fff;
-    color: #023867;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 15px;
-    width: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    p {
-      &:nth-of-type(n+2) {
-        color: #212121;
-        opacity: .8;
-      }
-    }
-    }
+.testimonial-card:nth-of-type(odd) {
+&:nth-child(odd) {
+/*   grid-column: 1/2; */
+  background: var(--mesa-secondary-blue-gradient);
+  /* background: #1f3c7b; */
+  border: 1px solid #ccc;
 }
-} /*end S2*/
+} 
+.testimonial-card:nth-of-type(even) {
+&:nth-child(even) {
+/*   grid-column: 2/3; */
+  background: var(--mesa-yellow-gradient);
+  border: 1px solid #ccc;
+  aside {
+    span {
+      color: var(--mesa-primary-mid-blue);
+    }
+  }
+}
+}
 
 /*********************
 MID SIZED CARD STYLING
@@ -549,13 +292,6 @@ MID SIZED CARD STYLING
   }
 }
 
-
-
-
-
-
-
-
   /*Alum image container*/
   .alum-image-crop {
     width: 100px;
@@ -565,6 +301,12 @@ MID SIZED CARD STYLING
     border-radius: 50%;
   }
   /*Alum images*/
+  #alum2 {
+    background: url(images/image2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   #alum5 {
     background: url(images/image5.png);
     background-position: center;
@@ -578,6 +320,13 @@ MID SIZED CARD STYLING
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  #alum7  {
+    background: url(images/image7.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
  
   #alum8 {
     background: url(images/image8.png);
@@ -585,3 +334,17 @@ MID SIZED CARD STYLING
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  #alum9 {
+    background: url(images/image9.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  
+
+  /*********************
+  MEDIA QUERIES 
+  *********************/
+  /*Line clamps*/
