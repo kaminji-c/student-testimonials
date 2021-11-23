@@ -14,6 +14,7 @@ body {
     font-family: "Antonio", san-serif; 
     p {
       line-height: 1.5;
+      margin: 0;
     }
     h2 {
       display: flex;
@@ -27,6 +28,13 @@ body {
     color: #212121;
     font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
   }
+    /*Line clamp, limit line to 7 for longer quotes?*/
+    span {
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
   .review { 
     &::before , &::after {
       font-family: sans-serif;
@@ -43,13 +51,16 @@ body {
   .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 20px;
+    grid-template-rows: 390px 300px 300px;
+    /*grid-template-rows: repeat(3, 1fr)*/
+/*     grid-gap: 60px 20px;
+ */
+    grid-gap: 80px 20px;
     padding: 20px;
     width: 100%;
     max-width: 1200px;
-    height: 100vh;
-    max-height: 500px;
+/*     height: 100vh; */
+    height: min-content;
     /* justify-content: center;  */
     align-content: center; 
     background: var(--mesa-blue-gradient);
@@ -284,7 +295,6 @@ body {
       background:  	rgb(248,248,255);
       &:nth-child(3) {
         grid-column: 3/4;
-        /* background: rgb(255, 255, 255);  */
         min-height: 350px;
           .alum-info {
             display: flex;
@@ -339,24 +349,95 @@ body {
           }
         }
       }
-  
-  /*General card styling*/
-    /*Alum details*/
-    .alum-details {
-      p {
-        line-height: 1.5;
-        margin: 0;
+
+/*********************
+MID SIZED CARD STYLING
+*********************/
+.testimonial-card:nth-of-type(4){
+  background: #fff;
+  border: 1px solid #fff;
+  &:nth-child(4){
+    padding: 10px;
+    color: #fff;
+    grid-column: 1/3;
+      color: #212121;
+      align-items:center;
+      text-align: left;
+      border-radius: 5px;
+      .alum-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        flex-shrink: 0;
+        flex-basis: 100%;
+        flex-grow: 0;
+        margin-top: 0;
+        margin-right: 10%;
+        min-width: 273px;
+        height: 300px;
       }
+      .alum-image {
+        border-radius: 5px;
+        background: var(--mesa-yellow-gradient);
+        display: block;
+        width: 100%;
+        position: relative;
+        top: -13%;
+        left: 1%;
+      }
+      .alum-image-crop {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 50%;
+        order: 4;
+        position: relative;
+        top: 8%;
+        left: 72%;
+        border: 5px solid #fff;
+      }
+      .alum-grad{ 
+        /*WE ARE MESA*/
+        order: 1;
+        width: 0;
+        height: 0;
+        margin-left: 59px;
+        position: relative;
+        bottom: 123%;
+        left: 95%;
+      aside { 
+        &::before {
+          content: "WE ARE MESA";
+        }
+        /*No content in aside*/
+        display: inline-flex;
+        font-size: 3.25rem;
+        letter-spacing: 3px;
+        color: #023867;
+        font-weight: 700;
+        transform-origin: 0 0;
+        transform: rotate(90deg);
+        width: 280px;
+        span {
+          color: #001b33;
+        }
+      }
+  }
+  .review {
+    .highlight {
+      padding-right: 50px;
     }
-    /*Testimonial*/
-    /*Line clamp, limit line to 7 for longer quotes?*/
-    span {
-      display: -webkit-box;
-      -webkit-line-clamp: 7;
-      -webkit-box-orient: vertical;  
-      overflow: hidden;
-    }
-  
+  }
+  }
+}
+
+
+
+
+
+
+
+
   /*Alum image container*/
   .alum-image-crop {
     width: 100px;
@@ -364,7 +445,6 @@ body {
     overflow: hidden;
    /*  border: 5px solid #023867; */
     border-radius: 50%;
-    
   }
   /*Alum images*/
   #alum5 {
