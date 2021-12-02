@@ -68,15 +68,15 @@ span {
 /*********************
   GRID LAYOUT STYLING 
   *********************/
+/*Fix flex box so it doesn't spill out of container*/
 .testimonial-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
   -ms-grid-rows: (1fr)[3];
       grid-template-rows: repeat(3, 1fr);
-  /*     grid-gap: 60px 20px;
- */
   grid-gap: 20px 20px;
   padding: 20px;
   width: 100%;
@@ -87,8 +87,6 @@ span {
   -ms-flex-line-pack: center;
       align-content: center;
   /*   background: #f8f8ff; */
-  /*     background: var(--mesa-blue-gradient);
- */
   margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -108,9 +106,9 @@ span {
       -ms-flex-direction: row;
           flex-direction: row;
   justify-items: start;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
   margin: 0;
-  height: 405px;
-  max-height: 500px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border-radius: 5px;
@@ -139,7 +137,7 @@ span {
   margin-top: 0;
   margin-right: 10%;
   min-width: 273px;
-  height: inherit;
+  height: 450px;
 }
 
 .testimonial-card .alum-grad {
@@ -150,7 +148,7 @@ span {
   height: 0;
   margin-left: 59px;
   position: relative;
-  top: -30%;
+  top: -25%;
   left: 0;
 }
 
@@ -204,28 +202,41 @@ span {
       -ms-flex-order: 2;
           order: 2;
   background: #fff;
+  /*trying to fix flex items to fit grid container*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
-.testimonial-card .review:after {
+.testimonial-card .review:before {
   content: "\”";
-  bottom: 29%;
-  right: -82%;
-}
-
-.testimonial-card .review:after {
-  color: #212121;
+  bottom: 75%;
+  left: 75%;
+  /* color: #212121; */
+  color: #fff;
   height: 0;
   opacity: 0.5;
-  z-index: 1;
+  /* z-index: 1; */
   display: block;
   position: relative;
 }
 
 .testimonial-card .review .highlight {
   margin: 30px 45px;
-  margin-bottom: 15px;
+  /* margin-top: 30px;
+        margin-bottom: 15px; */
+  /*  margin-left: auto; */
   text-align: center;
   font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
+  /* flex: 0.8; */
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .testimonial-card .alum-details {
@@ -238,6 +249,19 @@ span {
   margin: 0 auto;
   padding-bottom: 15px;
   width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .testimonial-card .alum-details p:nth-of-type(n+2) {
