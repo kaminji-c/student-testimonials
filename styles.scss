@@ -38,7 +38,7 @@ body {
     color: #212121;
     font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
   }
-    /*Line clamp, limit line to 7 for longer quotes?*/
+    /*Line clamp, limit line to 10*/
     span {
       display: -webkit-box;
       -webkit-line-clamp: 10;
@@ -60,22 +60,19 @@ body {
   /*********************
   GRID LAYOUT STYLING 
   *********************/
-  /*Fix flex box so it doesn't spill out of container*/
   .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: repeat(3, 1fr); */
-     grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr); 
+    /* grid-template-rows: repeat(3, 1fr auto); */
     grid-gap: 20px 20px;
     padding: 20px;
-    width: 100%;
     max-width: 1200px;
-     height: min-content;
-    align-content: center; 
-  /*   background: #f8f8ff; */
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
+    background: #f8f8ff; 
+    margin: 0 auto; 
+    /* align-items: center;
+    justify-items: center;  */
+    place-items: center center;
   }
   /*********************
   FLEX ITEM GENERAL STYLING
@@ -83,22 +80,23 @@ body {
   .testimonial-card {
     display: flex;
     flex-direction: row;
-    justify-items: start;
-    align-self: baseline;
-    margin: 0;
     flex-wrap: wrap;
+    place-content: center center; 
+    margin: 0;
     border-radius: 5px;
     padding: 0;
     margin: 0;
-    .alum-info {
+    .alum-info {   
       display: flex;
       flex-direction: column;
-      flex: 1;
+      flex-wrap: nowrap;
+      place-content: start end;
+      flex: 0.7;
       flex-shrink: 0;
-      flex-basis: 100%;
+      flex-basis: 100%; 
       flex-grow: 0;
       margin-top: 0;
-      margin-right: 10%;
+      /* margin-right: 10%; */
       min-width: 273px;
       height: 450px;
     }
@@ -126,11 +124,10 @@ body {
     }
     }
     .alum-image {
-  /*     background: var(--mesa-blue-gradient);   */
+      display: flex;
       border-radius: 5px;
       display: block;
       width: 100%;
-/*       height: 300px; */
     }
     .alum-image-crop {
       width: 115px;
@@ -165,13 +162,14 @@ body {
           position: relative;
       }
       .highlight {
-         margin: 30px 45px; 
-        /* margin-top: 30px;
-        margin-bottom: 15px; */
-       /*  margin-left: auto; */
+    /*      margin-top: 30px 45px;  */
+         margin-top: 30px;
+        margin-bottom: 15px; 
+         margin-left: 10px;
+         margin-right: 10px;
+         padding: 10px; 
         text-align: center;
         font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
-        /* flex: 0.8; */
         flex: 1;
       }
     }
@@ -219,87 +217,6 @@ COMBINED S1-S3 CARD STYLING
     }
   }
 }
-}
-
-/*********************
-MID SIZED CARD STYLING
-*********************/
-.testimonial-card:nth-of-type(5){
-  background: #fff;
-  border: 1px solid #fff;
-  &:nth-child(4){
-    padding: 10px;
-    color: #fff;
-    grid-column: 1/3;
-      color: #212121;
-      align-items:center;
-      text-align: left;
-      border-radius: 5px;
-      .alum-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        flex-shrink: 0;
-        flex-basis: 100%;
-        flex-grow: 0;
-        margin-top: 0;
-        margin-right: 10%;
-        min-width: 273px;
-        height: 300px;
-      }
-      .alum-image {
-        border-radius: 5px;
-        background: var(--mesa-yellow-gradient);
-        display: block;
-        width: 100%;
-        position: relative;
-        top: -13%;
-        left: 1%;
-      }
-      .alum-image-crop {
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-        border-radius: 50%;
-        order: 4;
-        position: relative;
-        top: 8%;
-        left: 72%;
-        border: 5px solid #fff;
-      }
-      .alum-grad{ 
-        /*WE ARE MESA*/
-        order: 1;
-        width: 0;
-        height: 0;
-        margin-left: 59px;
-        position: relative;
-        bottom: 123%;
-        left: 95%;
-      aside { 
-        &::before {
-          content: "WE ARE MESA";
-        }
-        /*No content in aside*/
-        display: inline-flex;
-        font-size: 3.25rem;
-        letter-spacing: 3px;
-        color: #023867;
-        font-weight: 700;
-        transform-origin: 0 0;
-        transform: rotate(90deg);
-        width: 280px;
-        span {
-          color: #001b33;
-        }
-      }
-  }
-  .review {
-    .highlight {
-      padding-right: 50px;
-    }
-  }
-  }
 }
 
   /*Alum image container*/
