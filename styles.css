@@ -75,21 +75,18 @@ span {
 .testimonial-grid {
   display: -ms-grid;
   display: grid;
-  /*grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(2, 1fr); */
-  -ms-grid-columns: (1fr)[1];
-      grid-template-columns: repeat(1, 1fr);
-  -ms-grid-rows: (1fr)[auto-fit];
-      grid-template-rows: repeat(auto-fit, 1fr);
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-rows: (minmax(300px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px 20px;
   padding: 20px;
   max-width: 1200px;
   background: #f8f8ff;
   background: rgba(248, 248, 255, 0.8);
   margin: 0 auto;
-  /* align-items: center;
-    justify-items: center;  */
   place-items: center center;
+  border-radius: 5px;
 }
 
 /*********************
@@ -256,7 +253,6 @@ span {
       -ms-flex-order: 3;
           order: 3;
   margin: 0 auto;
-  padding-bottom: 15px;
   width: 100%;
   place-content: center center;
   background-color: #fff;
@@ -270,19 +266,15 @@ span {
 }
 
 /*********************
-COMBINED S1-S3 CARD STYLING
+ALT STYLING USING NTH-OF-TYPE
 *********************/
 .testimonial-card:nth-of-type(odd):nth-child(odd) {
-  /*   grid-column: 1/2; */
   background: var(--mesa-secondary-blue-gradient);
   /* background: #1f3c7b; */
-  /*  border: 1px solid #ccc; */
 }
 
 .testimonial-card:nth-of-type(even):nth-child(even) {
-  /*   grid-column: 2/3; */
   background: var(--mesa-yellow-gradient);
-  /*  border: 1px solid #ccc; */
 }
 
 .testimonial-card:nth-of-type(even):nth-child(even) aside span {
@@ -358,24 +350,4 @@ COMBINED S1-S3 CARD STYLING
   MEDIA QUERIES 
   *********************/
 /*Line clamps*/
-@media screen and (min-width: 600px) {
-  .testimonial-grid {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .testimonial-grid {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/*   @media screen and (min-width: 1400px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 1600px;
-    }
-} */
 /*# sourceMappingURL=styles.css.map */

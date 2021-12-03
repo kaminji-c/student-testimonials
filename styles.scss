@@ -63,19 +63,16 @@ body {
   *********************/
   .testimonial-grid {
     display: grid;
-    /*grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(2, 1fr); */
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr)); 
     grid-gap: 20px 20px;
     padding: 20px;
     max-width: 1200px;
     background: #f8f8ff; 
     background: rgba(248, 248, 255, .8);
     margin: 0 auto; 
-    /* align-items: center;
-    justify-items: center;  */
     place-items: center center;
+    border-radius: 5px;
   }
   /*********************
   FLEX ITEM GENERAL STYLING
@@ -198,7 +195,7 @@ body {
   }
 
 /*********************
-COMBINED S1-S3 CARD STYLING
+ALT STYLING USING NTH-OF-TYPE
 *********************/
 .testimonial-card:nth-of-type(odd) {
 &:nth-child(odd) {
@@ -209,7 +206,6 @@ COMBINED S1-S3 CARD STYLING
 .testimonial-card:nth-of-type(even) {
 &:nth-child(even) {
   background: var(--mesa-yellow-gradient);
-/
   aside {
     span {
       color: var(--mesa-primary-mid-blue);
@@ -278,25 +274,7 @@ COMBINED S1-S3 CARD STYLING
     background-size: cover;
   }
 
-  
-
   /*********************
   MEDIA QUERIES 
   *********************/
   /*Line clamps*/
-  @media screen and (min-width: 600px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media screen and (min-width: 900px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-/*   @media screen and (min-width: 1400px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 1600px;
-    }
-} */
