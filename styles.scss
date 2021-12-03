@@ -20,6 +20,7 @@ body {
       margin: 0;
     }
     .header {
+      padding-bottom: 10px;
       h2, p {
         display: flex;
         justify-content: center;
@@ -70,6 +71,7 @@ body {
     padding: 20px;
     max-width: 1200px;
     background: #f8f8ff; 
+    background: rgba(248, 248, 255, .8);
     margin: 0 auto; 
     /* align-items: center;
     justify-items: center;  */
@@ -84,9 +86,10 @@ body {
     flex-wrap: wrap;
     place-content: center center; 
     margin: 0;
-    border-radius: 5px;
     padding: 0;
     margin: 0;
+    border: px solid #ccc;
+    border-radius: 5px;
     .alum-info {   
       display: flex;
       flex-direction: column;
@@ -99,7 +102,6 @@ body {
       margin-top: 0;
       min-width: 273px;
       height: 450px;
-      border-radius: 5px;
     }
     .alum-grad{ 
       order: 1;
@@ -140,6 +142,7 @@ body {
         width: 50px;
      }
     }
+    /*Alum image container*/
     .alum-image-crop {
       width: 115px;
       height: 115px;
@@ -179,14 +182,11 @@ body {
       flex: 1;
       order: 3;
       margin: 0 auto;
-      padding-bottom: 15px;
       width: 100%;
       place-content: center center;
       background-color: #fff;
       color: var(--mesa-primary-mid-blue);
       text-align: center;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
       p {
         
         &:nth-of-type(n+2) {
@@ -202,17 +202,14 @@ COMBINED S1-S3 CARD STYLING
 *********************/
 .testimonial-card:nth-of-type(odd) {
 &:nth-child(odd) {
-/*   grid-column: 1/2; */
   background: var(--mesa-secondary-blue-gradient);
   /* background: #1f3c7b; */
-  border: 1px solid #ccc;
 }
 } 
 .testimonial-card:nth-of-type(even) {
 &:nth-child(even) {
-/*   grid-column: 2/3; */
   background: var(--mesa-yellow-gradient);
-  border: 1px solid #ccc;
+/
   aside {
     span {
       color: var(--mesa-primary-mid-blue);
@@ -220,15 +217,6 @@ COMBINED S1-S3 CARD STYLING
   }
 }
 }
-
-  /*Alum image container*/
-  .alum-image-crop {
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-   /*  border: 5px solid #023867; */
-    border-radius: 50%;
-  }
   /*Alum images*/
   #alum1 {
     background: url(images/image1.png);

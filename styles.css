@@ -23,6 +23,10 @@ body p {
   margin: 0;
 }
 
+body .header {
+  padding-bottom: 10px;
+}
+
 body .header h2, body .header p {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,6 +85,7 @@ span {
   padding: 20px;
   max-width: 1200px;
   background: #f8f8ff;
+  background: rgba(248, 248, 255, 0.8);
   margin: 0 auto;
   /* align-items: center;
     justify-items: center;  */
@@ -102,9 +107,11 @@ span {
       flex-wrap: wrap;
   place-content: center center;
   margin: 0;
-  border-radius: 5px;
   padding: 0;
   margin: 0;
+  border: px solid #ccc;
+  border-radius: 5px;
+  /*Alum image container*/
 }
 
 .testimonial-card .alum-info {
@@ -131,7 +138,6 @@ span {
   margin-top: 0;
   min-width: 273px;
   height: 450px;
-  border-radius: 5px;
 }
 
 .testimonial-card .alum-grad {
@@ -256,8 +262,6 @@ span {
   background-color: #fff;
   color: var(--mesa-primary-mid-blue);
   text-align: center;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
 .testimonial-card .alum-details p:nth-of-type(n+2) {
@@ -272,26 +276,17 @@ COMBINED S1-S3 CARD STYLING
   /*   grid-column: 1/2; */
   background: var(--mesa-secondary-blue-gradient);
   /* background: #1f3c7b; */
-  border: 1px solid #ccc;
+  /*  border: 1px solid #ccc; */
 }
 
 .testimonial-card:nth-of-type(even):nth-child(even) {
   /*   grid-column: 2/3; */
   background: var(--mesa-yellow-gradient);
-  border: 1px solid #ccc;
+  /*  border: 1px solid #ccc; */
 }
 
 .testimonial-card:nth-of-type(even):nth-child(even) aside span {
   color: var(--mesa-primary-mid-blue);
-}
-
-/*Alum image container*/
-.alum-image-crop {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  /*  border: 5px solid #023867; */
-  border-radius: 50%;
 }
 
 /*Alum images*/
