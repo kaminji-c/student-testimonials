@@ -50,7 +50,7 @@ body .header h2 {
 }
 
 /*Line clamp, limit line to 10*/
-span {
+.highlight {
   display: -webkit-box;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
@@ -141,18 +141,16 @@ span {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  width: 0;
+  width: 100%;
   height: 0;
   margin-left: 59px;
   position: relative;
   top: -25%;
-  left: -1%;
+  left: 0;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-card .alum-grad aside {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   font-size: 3rem;
   letter-spacing: 3px;
   color: #fff;
@@ -165,6 +163,7 @@ span {
 }
 
 .testimonial-card .alum-grad aside span {
+  padding-left: 5px;
   color: #001b33;
 }
 
@@ -175,6 +174,9 @@ span {
   border-radius: 5px;
   display: block;
   width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .testimonial-card .alum-image:before {
@@ -228,7 +230,7 @@ span {
   margin-bottom: 15px;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
   -webkit-box-flex: 1;
