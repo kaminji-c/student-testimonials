@@ -48,24 +48,19 @@ body .header h2 {
   font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
 }
 
-/*Line clamp, limit line to 10*/
-.highlight {
+.review .highlight {
+  font-size: calc(1.2rem + (3 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  font-style: italic;
+  font-family: sans-serif;
+  /*Line clamp, limit line to 10*/
   display: -webkit-box;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.review::before, .review::after, .alum-image::before, .alum-image::after {
-  font-family: sans-serif;
-  font-size: calc(7rem + (6 - 1) * ((100vw - 300px)/(1600 - 300)));
-  font-weight: 500;
-}
-
-.review .highlight, .alum-image .highlight {
-  font-size: calc(1.2rem + (3 - 1.2) * ((100vw - 300px)/(1600 - 300)));
-  font-style: italic;
-  font-family: sans-serif;
+.alum-grad p {
+  font-size: calc(2.75rem + (5 - 2.75) * ((100vw - 300px)/(1600 - 300)));
 }
 
 /*********************
@@ -98,14 +93,16 @@ body .header h2 {
   /* grid-template-columns: auto-fit 1fr auto-fit; */
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  /*  grid-template-columns: repeat(6, minmax(auto-fit, 1fr)); */
+  -ms-grid-rows: 0 1fr;
+      grid-template-rows: 0 1fr;
   margin: 0;
   padding: 0;
   margin: 0;
   border: px solid #ccc;
   border-radius: 5px;
-  grid-auto-flow: dense;
+  grid-auto-flow: column;
+  /* overflow-x: auto; */
   /*Grid Items*/
   /*********************
   FLEX CONTAINER: MAIN CONTENT
@@ -118,16 +115,20 @@ body .header h2 {
   -ms-grid-column-span: 1;
   grid-column: 1/2;
   z-index: 1;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .testimonial-card .alum__left .alum-grad {
+  display: inline-block;
   height: 0;
-  margin-left: 59px;
+  width: 0;
   position: relative;
   top: 5px;
-  left: 0;
+  left: 100%;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-  font-size: 3rem;
+  /* font-size: 3rem; */
   letter-spacing: 3px;
   color: #fff;
   font-weight: 700;
@@ -135,9 +136,12 @@ body .header h2 {
           transform-origin: 0 0;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  overflow: none;
-  min-width: 235px;
-  width: 100%;
+  /*  min-width: 235px; 
+      width: 100%; */
+}
+
+.testimonial-card .alum__left .alum-grad p {
+  display: block;
 }
 
 .testimonial-card .alum__left .alum-grad span {
