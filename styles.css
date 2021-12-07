@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&display=swap");
 :root {
   --mesa-blue-gradient: linear-gradient(120deg, #001b33 0%, #023867 35%, #007ecc 100%);
@@ -90,25 +89,83 @@ body .header h2 {
 }
 
 /*********************
-  FLEX ITEM GENERAL STYLING
+  NESTED GRID: 
+  GENERAL STYLING
   **********************/
 .testimonial-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  place-content: center center;
+  display: -ms-grid;
+  display: grid;
+  /* grid-template-columns: auto-fit 1fr auto-fit; */
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
   margin: 0;
   padding: 0;
   margin: 0;
   border: px solid #ccc;
   border-radius: 5px;
+  grid-auto-flow: dense;
+  /*Grid Items*/
+  /*********************
+  FLEX CONTAINER: MAIN CONTENT
+  **********************/
   /*Alum image container*/
+}
+
+.testimonial-card .alum__left {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  z-index: 1;
+}
+
+.testimonial-card .alum__left .alum-grad {
+  height: 0;
+  margin-left: 59px;
+  position: relative;
+  top: 5px;
+  left: 0;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: #fff;
+  font-weight: 700;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  overflow: none;
+  min-width: 235px;
+  width: 100%;
+}
+
+.testimonial-card .alum__left .alum-grad span {
+  padding-left: 3px;
+  color: #001b33;
+}
+
+.testimonial-card .alum__main {
+  grid-column: 1/-1;
+}
+
+.testimonial-card .alum__right {
+  grid-column: 6/-1;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 5rem;
+  -ms-grid-column-align: self-end;
+      justify-self: self-end;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  display: block;
+  position: relative;
+  height: 0;
 }
 
 .testimonial-card .alum-info {
@@ -121,10 +178,10 @@ body .header h2 {
           flex-direction: column;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  place-content: start end;
-  -webkit-box-flex: 0.7;
-      -ms-flex: 0.7;
-          flex: 0.7;
+  /*     place-content: start end; */
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -ms-flex-preferred-size: 100%;
@@ -137,36 +194,6 @@ body .header h2 {
   height: 450px;
 }
 
-.testimonial-card .alum-grad {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  width: 100%;
-  height: 0;
-  margin-left: 59px;
-  position: relative;
-  top: -25%;
-  left: 0;
-  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-card .alum-grad aside {
-  font-size: 3rem;
-  letter-spacing: 3px;
-  color: #fff;
-  font-weight: 700;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  width: 235px;
-}
-
-.testimonial-card .alum-grad aside span {
-  padding-left: 5px;
-  color: #001b33;
-}
-
 .testimonial-card .alum-image {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -177,18 +204,6 @@ body .header h2 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-}
-
-.testimonial-card .alum-image:before {
-  content: "\”";
-  top: -5%;
-  left: 85%;
-  color: #fff;
-  height: 0;
-  opacity: 0.8;
-  display: block;
-  position: relative;
-  width: 50px;
 }
 
 .testimonial-card .alum-image-crop {

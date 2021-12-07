@@ -75,24 +75,74 @@ body {
     border-radius: 5px;
   }
   /*********************
-  FLEX ITEM GENERAL STYLING
+  NESTED GRID: 
+  GENERAL STYLING
   **********************/
   .testimonial-card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    place-content: center center; 
+    display: grid;
+    /* grid-template-columns: auto-fit 1fr auto-fit; */
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
     margin: 0;
     padding: 0;
     margin: 0;
     border: px solid #ccc;
     border-radius: 5px;
+    grid-auto-flow: dense;
+  /*Grid Items*/
+  .alum__left {
+   grid-column: 1/2;
+   z-index: 1;
+    .alum-grad{ 
+      height: 0;  
+      margin-left: 59px; 
+      position: relative;
+      top: 5px;
+      left: 0;
+      text-shadow:4px 4px 0 rgba(0,0,0,0.1);
+      font-size: 3rem;
+      letter-spacing: 3px;
+      color: #fff;
+      font-weight: 700;
+      transform-origin: 0 0;
+      transform: rotate(90deg);
+      overflow: none;
+      min-width: 235px; 
+      width: 100%;
+      span {
+        padding-left: 3px; 
+        color: #001b33;
+      }
+    }
+  }
+  .alum__main {
+   grid-column: 1/-1;
+  }
+  .alum__right {
+    grid-column: 6/-1;
+    z-index: 2;
+      top: 0;
+      left: 0;
+      color: #fff;
+      opacity: 0.9;
+      font-size: 5rem;
+      justify-self: self-end;
+      align-content: start;     
+      text-shadow:4px 4px 0 rgba(0,0,0,0.1); 
+      font-weight: 700;
+      display: block;
+      position: relative; 
+      height: 0;
+}
+  /*********************
+  FLEX CONTAINER: MAIN CONTENT
+  **********************/
     .alum-info {   
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
-      place-content: start end;
-      flex: 0.7;
+  /*     place-content: start end; */
+      flex: 1;
       flex-shrink: 0;
       flex-basis: 100%; 
       flex-grow: 0;
@@ -100,46 +150,12 @@ body {
       min-width: 273px;
       height: 450px;
     }
-    .alum-grad{ 
-      order: 1;
-      width: 100%; 
-      height: 0;  
-      margin-left: 59px;
-      position: relative;
-      top: -25%;
-      left: 0;
-      text-shadow:4px 4px 0 rgba(0,0,0,0.1);
-    aside {
-      font-size: 3rem;
-      letter-spacing: 3px;
-      color: #fff;
-      font-weight: 700;
-      transform-origin: 0 0;
-      transform: rotate(90deg);
-      width: 235px;
-      span {
-        padding-left: 5px;
-        color: #001b33;
-      }
-    }
-    }
     .alum-image {
       display: flex;
       border-radius: 5px;
       display: block;
       width: 100%;
       flex: 1;
-      &:before {
-        content: "\”";
-        top: -5%;
-        left: 85%;
-        color: #fff;
-        height: 0;
-        opacity: 0.8;
-        display: block;
-        position: relative;
-        width: 50px;
-     }
     }
     /*Alum image container*/
     .alum-image-crop {
@@ -194,8 +210,7 @@ body {
         }
       }
       }
-  }
-
+} 
 /*********************
 ALT STYLING USING NTH-OF-TYPE
 *********************/
