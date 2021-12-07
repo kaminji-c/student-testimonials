@@ -90,10 +90,8 @@ body .header h2 {
 .testimonial-card {
   display: -ms-grid;
   display: grid;
-  /* grid-template-columns: auto-fit 1fr auto-fit; */
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-  /*  grid-template-columns: repeat(6, minmax(auto-fit, 1fr)); */
   -ms-grid-rows: 0 1fr;
       grid-template-rows: 0 1fr;
   margin: 0;
@@ -102,8 +100,8 @@ body .header h2 {
   border: px solid #ccc;
   border-radius: 5px;
   grid-auto-flow: column;
-  /* overflow-x: auto; */
-  /*Grid Items*/
+  /*************
+  GRID ITEMS***/
   /*********************
   FLEX CONTAINER: MAIN CONTENT
   **********************/
@@ -115,20 +113,22 @@ body .header h2 {
   -ms-grid-column-span: 1;
   grid-column: 1/2;
   z-index: 1;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
 }
 
 .testimonial-card .alum__left .alum-grad {
-  display: inline-block;
-  height: 0;
-  width: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: .7;
+      -ms-flex: .7;
+          flex: .7;
+  -ms-flex-item-align: left;
+      align-self: left;
+  justify-items: start;
   position: relative;
-  top: 5px;
-  left: 100%;
+  top: 7px;
+  left: 35%;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-  /* font-size: 3rem; */
   letter-spacing: 3px;
   color: #fff;
   font-weight: 700;
@@ -136,16 +136,10 @@ body .header h2 {
           transform-origin: 0 0;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  /*  min-width: 235px; 
-      width: 100%; */
-}
-
-.testimonial-card .alum__left .alum-grad p {
-  display: block;
 }
 
 .testimonial-card .alum__left .alum-grad span {
-  padding-left: 3px;
+  padding-left: 15px;
   color: #001b33;
 }
 
@@ -157,7 +151,7 @@ body .header h2 {
   grid-column: 6/-1;
   z-index: 2;
   top: 0;
-  left: 0;
+  right: 10%;
   color: #fff;
   opacity: 0.9;
   font-size: 5rem;
@@ -170,6 +164,7 @@ body .header h2 {
   display: block;
   position: relative;
   height: 0;
+  font-family: sans-serif;
 }
 
 .testimonial-card .alum-info {
@@ -182,14 +177,13 @@ body .header h2 {
           flex-direction: column;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  /*     place-content: start end; */
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: .7;
+      -ms-flex: .7;
+          flex: .7;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
@@ -205,9 +199,6 @@ body .header h2 {
   border-radius: 5px;
   display: block;
   width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 
 .testimonial-card .alum-image-crop {
@@ -219,9 +210,9 @@ body .header h2 {
 }
 
 .testimonial-card .alum-image-crop {
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
   margin: 0 auto;
   position: relative;
   top: 25%;
@@ -245,19 +236,24 @@ body .header h2 {
 }
 
 .testimonial-card .review .highlight {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
   margin-left: 10px;
   margin-right: 10px;
   padding: 20px;
   text-align: center;
-  font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
+  -webkit-box-flex: .7;
+      -ms-flex: .7;
+          flex: .7;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 
 .testimonial-card .alum-details {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -267,12 +263,11 @@ body .header h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+  -webkit-box-flex: .7;
+      -ms-flex: .7;
+          flex: .7;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   margin: 0 auto;
   width: 100%;
   place-content: center center;
@@ -370,5 +365,4 @@ ALT STYLING USING NTH-OF-TYPE
 /*********************
   MEDIA QUERIES 
   *********************/
-/*Line clamps*/
 /*# sourceMappingURL=styles.css.map */

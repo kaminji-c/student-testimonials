@@ -76,9 +76,7 @@ body {
   **********************/
   .testimonial-card {
     display: grid;
-    /* grid-template-columns: auto-fit 1fr auto-fit; */
     grid-template-columns: repeat(6, 1fr);
-   /*  grid-template-columns: repeat(6, minmax(auto-fit, 1fr)); */
     grid-template-rows: 0 1fr; 
     margin: 0;
     padding: 0;
@@ -86,33 +84,28 @@ body {
     border: px solid #ccc;
     border-radius: 5px;
     grid-auto-flow: column;
-    /* overflow-x: auto; */
-  /*Grid Items*/
+
+  /*************
+  GRID ITEMS***/
   .alum__left {
    grid-column: 1/2;
    z-index: 1;
-   justify-content: end;
-    .alum-grad{ 
-      display: inline-block;
-      height: 0;  
-      width: 0;
+   .alum-grad { 
+      display: flex;
+      flex: .7;
+      align-self: left;
+      justify-items: start;
       position: relative;
-      top: 5px;
-      left: 100%;
+      top: 7px;
+      left: 35%;
       text-shadow:4px 4px 0 rgba(0,0,0,0.1);
-      /* font-size: 3rem; */
       letter-spacing: 3px;
       color: #fff;
       font-weight: 700;
       transform-origin: 0 0;
       transform: rotate(90deg);
-      p {
-        display: block;
-      }
-     /*  min-width: 235px; 
-      width: 100%; */
       span {
-        padding-left: 3px; 
+        padding-left: 15px; 
         color: #001b33;
       }
     }
@@ -124,7 +117,7 @@ body {
     grid-column: 6/-1;
     z-index: 2;
       top: 0;
-      left: 0;
+      right: 10%;
       color: #fff;
       opacity: 0.9;
       font-size: 5rem;
@@ -135,6 +128,7 @@ body {
       display: block;
       position: relative; 
       height: 0;
+      font-family: sans-serif;
 }
   /*********************
   FLEX CONTAINER: MAIN CONTENT
@@ -143,10 +137,9 @@ body {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
-  /*     place-content: start end; */
-      flex: 1;
+      flex: .7;
       flex-shrink: 0;
-      flex-basis: 100%; 
+      flex-basis: 70%; 
       flex-grow: 0;
       margin-top: 0;
       min-width: 273px;
@@ -157,7 +150,6 @@ body {
       border-radius: 5px;
       display: block;
       width: 100%;
-      flex: 1;
     }
     /*Alum image container*/
     .alum-image-crop {
@@ -168,7 +160,7 @@ body {
       border-radius: 50%;
     }
     .alum-image-crop {
-    order: 4;
+    order: 1;
     margin: 0 auto;
     position: relative;
     top: 25%;
@@ -182,22 +174,24 @@ body {
       padding-left: 20px;
       padding-right: 20px;
       .highlight {
-        margin-top: 30px;
-        margin-bottom: 15px; 
+        margin-top: 20px;
+        margin-bottom: 0px; 
         margin-left: 10px;
         margin-right: 10px;
         padding: 20px; 
         text-align: center;
-        font-size: calc(1rem + (4 - 1) * ((100vw - 300px)/(1600 - 300)));
-        flex: 1;
+        font-size: calc(1rem + (3 - 1) * ((100vw - 300px)/(1600 - 300)));
+        flex: .7;
+        flex-basis: 100%;
       }
     }
     .alum-details {
+      order: 3;
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
-      flex: 1;
-      order: 3;
+      flex: .7;
+      flex-basis: 100%;
       margin: 0 auto;
       width: 100%;
       place-content: center center;
@@ -205,7 +199,6 @@ body {
       color: var(--mesa-primary-mid-blue);
       text-align: center;
       p {
-        
         &:nth-of-type(n+2) {
           color: #212121;
           opacity: .8;
@@ -296,4 +289,5 @@ ALT STYLING USING NTH-OF-TYPE
   /*********************
   MEDIA QUERIES 
   *********************/
-  /*Line clamps*/
+
+
