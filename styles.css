@@ -297,6 +297,15 @@ ALT STYLING USING NTH-OF-TYPE
   color: var(--mesa-primary-mid-blue);
 }
 
+.alum-image-crop img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 /*Alum images*/
 #alum1 {
   background: url(images/image1.png);

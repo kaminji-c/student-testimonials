@@ -225,6 +225,14 @@ ALT STYLING USING NTH-OF-TYPE
   }
 }
 }
+
+.alum-image-crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+  
   /*Alum images*/
   #alum1 {
     background: url(images/image1.png);
